@@ -1,0 +1,17 @@
+body {
+    background-color: #105B63;
+}
+#search {
+    color: #ffffff;
+}
+input {
+    color: #000000;
+}
+/*.row {*/
+    /*height: auto;*/
+/*}*/
+
+.well {
+    background-color: #FFD34E;
+    /*height: inherit;*/
+}

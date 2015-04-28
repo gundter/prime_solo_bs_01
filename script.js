@@ -1,5 +1,5 @@
 var apikey = '728618f4cc37c292e2a09339bb33711dd540ddbd'; // Put your API key here
-
+var searchTerm;
 // Use this function to do stuff with your results.
 // It is called after 'search' is executed.
 function searchCallback(results) {
@@ -12,7 +12,7 @@ function searchCallback(results) {
 		if (results[i].image){
 			var image_url = results[i].image.icon_url;
 		}
-		$('.row').last().append("<div class='col-md-4 info'><img class='hidden-sm hidden-xs' src='"+ image_url + "'><p class='lead well'>" + results[i].name + "</p><div class='result'>" + description + "</div><button class='btn btn-sm btn-success removeTitle'>Remove Title</button></div>");
+		$('.row').last().append("<div class='col-md-4 well info'><img class='hidden-sm hidden-xs' src='"+ image_url + "'><p class='lead'>" + results[i].name + "</p><div class='result'>" + description + "</div><button class='btn btn-sm btn-success removeTitle'>Remove Title</button></div>");
 		if (i % 3 == 0){
 			$('.container').append("<div class='row'></div>");
 		}
@@ -20,8 +20,8 @@ function searchCallback(results) {
 	}
 	$('.info').on('click', '.removeTitle', function(){
 		console.log("Remove button");
-		console.log($(this).parent().children('p'));
-		$(this).parent().children('p').fadeOut('slow', function(){
+		console.log($(this).parent());
+		$(this).parent().fadeOut('slow', function(){
 			$(this).remove();
 		});
 	});
@@ -30,7 +30,14 @@ function searchCallback(results) {
 $(document).ready(function() {
 
 	// Start the search here!
-	search('batman');
+	$(".searchBtn").on('click', function(){
+		$(".row").empty();
+		searchTerm = $("#searchField").val();
+		console.log(searchTerm);
+		$("#searchField").val('');
+		search(searchTerm);
+	});
+	//search("predator");
 	
 });
 
