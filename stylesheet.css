@@ -1,18 +1,18 @@
-body {
-    background-color: #105B63;
-}
-#search {
-    color: #ffffff;
-}
-input {
-    color: #000000;
-}
+/*body {*/
+    /*background-color: #105B63;*/
+/*}*/
+/*#search {*/
+    /*color: #ffffff;*/
+/*}*/
+/*input {*/
+    /*color: #000000;*/
+/*}*/
 .row {
     display: table;
 }
 
 .well {
-    background-color: #FFD34E;
+    /*background-color: #FFD34E;*/
     display: table-cell;
     float: none;
 }
