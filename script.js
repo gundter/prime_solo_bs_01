@@ -1,10 +1,11 @@
 var apikey = '728618f4cc37c292e2a09339bb33711dd540ddbd'; // Put your API key here
 var searchTerm;
+var counter = 1;
 // Use this function to do stuff with your results.
 // It is called after 'search' is executed.
 function searchCallback(results) {
     console.log(results);
-	for(var i = 0; i < 10; i++) {
+	for(var i = 0; i < 9; i++) {
 		var description = "";
 		if (results[i].deck){
 			description = results[i].deck;
@@ -13,14 +14,14 @@ function searchCallback(results) {
 			var image_url = results[i].image.icon_url;
 		}
 		$('.row').last().append("<div class='col-md-4 well info'><img class='hidden-sm hidden-xs' src='"+ image_url + "'><p class='lead'>" + results[i].name + "</p><div class='result'>" + description + "</div><button class='btn btn-sm btn-success removeTitle'>Remove Title</button></div>");
-		if (i % 3 == 0){
+		if (counter % 3 == 0){
 			$('.container').append("<div class='row'></div>");
 		}
 		$('.row').hide().delay(i * 500).fadeIn('slow');
+		counter++;
 	}
+	console.log(i);
 	$('.info').on('click', '.removeTitle', function(){
-		console.log("Remove button");
-		console.log($(this).parent());
 		$(this).parent().fadeOut('slow', function(){
 			$(this).remove();
 		});

@@ -7,11 +7,12 @@ body {
 input {
     color: #000000;
 }
-/*.row {*/
-    /*height: auto;*/
-/*}*/
+.row {
+    display: table;
+}
 
 .well {
     background-color: #FFD34E;
-    /*height: inherit;*/
+    display: table-cell;
+    float: none;
 }
